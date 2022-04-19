@@ -9,8 +9,8 @@ import {
 
 import
   paginationFactory, {
-    PaginationListStandalone,
-    PaginationProvider,
+  PaginationListStandalone,
+  PaginationProvider,
 } from "react-bootstrap-table2-paginator";
 
 import ToolkitProvider, { Search } from "react-bootstrap-table2-toolkit"
@@ -24,7 +24,7 @@ import {
 } from "store/_Api/Patient"
 import { Label } from "reactstrap";
 
-function Patients() {
+function Patients() {  
 
   const [PatientLists, setPatientLists] = useState([]);
 

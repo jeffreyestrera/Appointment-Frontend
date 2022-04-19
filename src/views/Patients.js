@@ -2,20 +2,9 @@ import moment from "moment";
 import React, { useEffect, useState, useRef } from "react";
 import NotificationAlert from "react-notification-alert";
 
-// react-bootstrap components
 import {
-  Badge,
-  Button,
-  Card,
-  Navbar,
-  Nav,
-  Modal,
-  Form,
-  Table,
-  Container,
-  Row,
-  Col,
-  Dropdown
+  Button, Nav, Modal, Form,
+  Container, Row, Col, Dropdown
 } from "react-bootstrap";
 
 import
@@ -75,9 +64,8 @@ function Patients() {
         <>
           {
             data.status === "Cancelled" ?
-            <span className="text-danger">{data.status}</span> 
-                                :
-                                <span className="text-success">{data.status}</span> 
+            <span className="text-danger">{data.status}</span> :
+            <span className="text-success">{data.status}</span> 
           }
         </>
       )
@@ -89,38 +77,29 @@ function Patients() {
       text: "Action",
       formatter: (cellContent, data) => (
         <Dropdown as={Nav.Item}>
-                                <Dropdown.Toggle
-                                  aria-expanded={false}
-                                  aria-haspopup={true}
-                                  as={Nav.Link}
-                                  data-toggle="dropdown"
-                                  variant="link"
-                                  className="m-0"
-                                >
-                                  <span className="text-muted">Options</span>
-                                </Dropdown.Toggle>
-                                <Dropdown.Menu>
-                                  <Dropdown.Item
-                                    onClick={(e) => onGetPatient(data.patientID)}
-                                  >
-                                    Update
-                                  </Dropdown.Item>
-                                  <Dropdown.Item
-                                    onClick={(e) => onDeletePatient(data.patientID)}
-                                  >
-                                    Delete
-                                  </Dropdown.Item>
-                                  <br/>
-                                  <Dropdown.Item
-                                    onClick={(e) => onCancelAppointment(data.patientID)}
-                                  >
-                                    Cancel Appointment
-                                  </Dropdown.Item>
-                                </Dropdown.Menu>
-                              </Dropdown>
+          <Dropdown.Toggle
+            aria-expanded={false}
+            aria-haspopup={true}
+            as={Nav.Link}
+            data-toggle="dropdown"
+            variant="link"
+            className="m-0">
+            <span className="text-muted">Options</span>
+          </Dropdown.Toggle>
+          <Dropdown.Menu>
+            <Dropdown.Item
+              onClick={(e) => onGetPatient(data.patientID)}> Update
+            </Dropdown.Item>
+            <Dropdown.Item
+              onClick={(e) => onDeletePatient(data.patientID)}> Delete
+            </Dropdown.Item>
+            <br/>
+            <Dropdown.Item
+              onClick={(e) => onCancelAppointment(data.patientID)}> Cancel Appointment
+            </Dropdown.Item>
+          </Dropdown.Menu>
+        </Dropdown>
       )
-        
-      
     }
   ]
 
@@ -167,7 +146,6 @@ function Patients() {
     setPatientID(response.patientID);
     setPatientName(response.patientName);
     setSchedule(new Date(response.appointmentSchedule).toLocaleDateString('en-CA'));
-    console.log(response)
   }
 
   const ClearFields = () => {
